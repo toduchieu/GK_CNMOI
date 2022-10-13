@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="content">
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="number" name="stt" placeholder="Nhập số thứ tự">
+            <input type="text" name="ma_sv" placeholder="Nhập mã sinh viên">
+            <input type="text" name="ten_sv" placeholder="Nhập tên sinh viên">
+            <input type="test" name="ngay_sinh" placeholder="Nhập ngày sinh">
+            <input type="test" name="lop" placeholder="Nhập lớp">
+            <input type="file" name="image">
+            <input class="btn" type="submit" value="Thêm">
+        </form>
+        <form id="delete" method="POST" action="/delete" enctype="multipart/form-data">
+            <input class="btn" type="submit" value="Xoá" />
+            <div class="" title>
+                <h2>Danh sách sinh viên</h2>
+            </div>
+            <table border="1">
+                <tr>
+                    <th>STT</th>
+                    <th>Mã sinh viên</th>
+                    <th>Họ tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Lớp</th>
+                    <th>Image</th>
+                    <th>Chọn</th>
+                </tr>
+                <% for (let i=0;i<sinhViens.length;i++) { %>
+                    <tr>
+                        <td>
+                            <%=sinhViens[i].stt%>
+                        </td>
+                        <td>
+                            <%=sinhViens[i].ma_sv%>
+                        </td>
+                        <td>
+                            <%=sinhViens[i].ten_sv%>
+                        </td>
+                        <td>
+                            <%=sinhViens[i].ngay_sinh%>
+                        </td>
+                        <td>
+                            <%=sinhViens[i].lop%>
+                        </td>
+                        <td><img width="50px" src="<%=sinhViens[i].image_url%>"></td>
+                        <td><input type="checkbox" name="<%=sinhViens[i].ma_sv%>"></td>
+                    </tr>
+                    <%  } %>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
